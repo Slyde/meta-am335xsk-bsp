@@ -1,0 +1,69 @@
+This README file contains information on building the meta-am335x-bsp
+BSP layer, and booting the images contained in the /binary directory.
+Please see the corresponding sections below for details.
+
+
+Dependencies
+============
+
+This layer depends on:
+
+  URI: git://git.openembedded.org/bitbake
+  branch: master
+
+  URI: git://git.openembedded.org/openembedded-core
+  layers: meta
+  branch: master
+
+  URI: git://git.yoctoproject.org/xxxx
+  layers: xxxx
+  branch: master
+
+
+Patches
+=======
+
+Please submit any patches against this BSP to the Yocto mailing list
+(yocto@yoctoproject.org) and cc: the maintainer:
+
+Maintainer: Sylvain Décastel <scadlye@gmail.com>
+
+Please see the meta-xxxx/MAINTAINERS file for more details.
+
+
+Table of Contents
+=================
+
+  I. Building the meta-am335x-bsp BSP layer
+ II. Booting the images in /binary
+
+
+I. Building the meta-am335x-bsp BSP layer
+========================================
+
+In order to build an image with BSP support for a given release, you
+need to download the corresponding BSP tarball from the 'Board Support
+Package (BSP) Downloads' page of the Yocto Project website.
+
+To enable the am335xsk-bsp layer, add the am335x-bsp MACHINE to local.conf:
+
+  MACHINE ?= "am335xsk-bsp"
+
+You should then be able to build a am335x-bsp image as such:
+
+  $ source oe-init-build-env
+  $ bitbake core-image-sato
+
+At the end of a successful build, you should have a live image that
+you can boot from a USB flash drive (see instructions on how to do
+that below, in the section 'Booting the images from /binary').
+
+As an alternative to downloading the BSP tarball, you can also work
+directly from the meta-xxxx git repository.  For each BSP in the
+'meta-xxxx' repository, there are multiple branches, one corresponding
+to each major release starting with 'laverne' (0.90), in addition to
+the latest code which tracks the current master (note that not all
+BSPs are present in every release).  Instead of extracting a BSP
+tarball at the top level of your yocto build tree, you can
+equivalently check out the appropriate branch from the meta-xxxx
+repository at the same location.
