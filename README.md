@@ -12,5 +12,5 @@ If any people wants to be a contributor, please contact me :-)
 
 ## License
 
-All this development is licenced under GPLv2
+All this development is licenced under MIT
 
