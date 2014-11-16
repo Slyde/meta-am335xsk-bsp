@@ -2,7 +2,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-3.14:"
 
 PRINC := "${@int(PRINC) + 1}"
 
-COMPATIBLE_MACHINE_am335x-bsp = "am335x-bsp"
+COMPATIBLE_MACHINE_am335xsk-bsp = "am335xsk-bsp"
 
 SRC_URI += "file://am335x-bsp.cfg \
            "
