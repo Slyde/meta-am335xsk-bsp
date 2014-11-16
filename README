@@ -13,23 +13,30 @@ This layer depends on:
 
   URI: git://git.openembedded.org/openembedded-core
   layers: meta
-  branch: master
+  branch: daisy
 
-  URI: git://git.yoctoproject.org/xxxx
-  layers: xxxx
-  branch: master
+  URI: git://git.yoctoproject.org/meta-ti 
+  layers: meta-ti
+  branch: daisy
 
+  URI: git://git.yoctoproject.org/meta-yocto
+  layers: meta-yocto meta-yocto-bsp
+  branch: daisy
+
+  URI: git://git.openembedded.org/meta-openembedded
+  layers: meta-oe meta-xfce meta-gnome
+  branch: daisy
+
+  URI: https://github.com/Slyde/meta-am335xsk-bsp.git
+  layers: meta-am335xsk-bsp
+  branch: master
 
 Patches
 =======
 
-Please submit any patches against this BSP to the Yocto mailing list
-(yocto@yoctoproject.org) and cc: the maintainer:
+Please submit any patches against this BSP directly to me to my address : 
 
-Maintainer: Sylvain Décastel <scadlye@gmail.com>
-
-Please see the meta-xxxx/MAINTAINERS file for more details.
-
+Sylvain Décastel <scadlye@gmail.com>
 
 Table of Contents
 =================
@@ -52,18 +59,8 @@ To enable the am335xsk-bsp layer, add the am335x-bsp MACHINE to local.conf:
 You should then be able to build a am335x-bsp image as such:
 
   $ source oe-init-build-env
-  $ bitbake core-image-sato
+  $ bitbake core-image-xfce
 
 At the end of a successful build, you should have a live image that
 you can boot from a USB flash drive (see instructions on how to do
 that below, in the section 'Booting the images from /binary').
-
-As an alternative to downloading the BSP tarball, you can also work
-directly from the meta-xxxx git repository.  For each BSP in the
-'meta-xxxx' repository, there are multiple branches, one corresponding
-to each major release starting with 'laverne' (0.90), in addition to
-the latest code which tracks the current master (note that not all
-BSPs are present in every release).  Instead of extracting a BSP
-tarball at the top level of your yocto build tree, you can
-equivalently check out the appropriate branch from the meta-xxxx
-repository at the same location.
